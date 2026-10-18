@@ -1,0 +1,24 @@
+identity:
+  name: start_campaign
+  author: famulor
+  label:
+    en_US: Start Campaign
+description:
+  human:
+    en_US: Start a Famulor campaign. This begins real outreach (calls/messages) to
+      its leads.
+  llm: Starts a Famulor outbound campaign, which begins REAL calls or messages to
+    its leads. Only use when the user explicitly asks to start that campaign.
+parameters:
+- name: campaign_id
+  type: string
+  required: true
+  label:
+    en_US: Campaign ID
+  human_description:
+    en_US: ID of the campaign to start.
+  llm_description: ID of the campaign to start.
+  form: llm
+extra:
+  python:
+    source: tools/start_campaign.py

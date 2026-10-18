@@ -1,0 +1,54 @@
+identity:
+  name: start_outbound_call
+  author: famulor
+  label:
+    en_US: Start Outbound Call
+description:
+  human:
+    en_US: Place a real outbound phone call with a Famulor assistant. Consumes workspace
+      credits.
+  llm: Starts a REAL outbound phone call from a Famulor assistant to a phone number.
+    Only use when the user explicitly asks to call someone. Returns the call id and
+    initial status; use get_call later for the result.
+parameters:
+- name: assistant_id
+  type: string
+  required: true
+  label:
+    en_US: Assistant ID
+  human_description:
+    en_US: ID of an active assistant with an outbound-capable phone number.
+  llm_description: ID of an active assistant with an outbound-capable phone number.
+  form: llm
+- name: to_number
+  type: string
+  required: true
+  label:
+    en_US: Phone number
+  human_description:
+    en_US: Destination in E.164 format, e.g. +4930123456.
+  llm_description: Destination in E.164 format, e.g. +4930123456.
+  form: llm
+- name: phone_number_id
+  type: string
+  required: false
+  label:
+    en_US: Caller phone number ID
+  human_description:
+    en_US: Optional ID of the Famulor phone number to call from.
+  llm_description: Optional ID of the Famulor phone number to call from.
+  form: llm
+- name: variables
+  type: string
+  required: false
+  label:
+    en_US: Variables (JSON)
+  human_description:
+    en_US: 'Optional JSON object of custom variables for the assistant, e.g. {"customer_name":
+      "Ada"}.'
+  llm_description: 'Optional JSON object of custom variables for the assistant, e.g.
+    {"customer_name": "Ada"}.'
+  form: llm
+extra:
+  python:
+    source: tools/start_outbound_call.py

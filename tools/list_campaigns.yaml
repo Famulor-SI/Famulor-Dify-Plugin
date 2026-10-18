@@ -1,0 +1,49 @@
+identity:
+  name: list_campaigns
+  author: famulor
+  label:
+    en_US: List Campaigns
+description:
+  human:
+    en_US: List outbound campaigns and their status.
+  llm: Lists Famulor campaigns with id, name, status and channel. Use it to find the
+    campaign_id to start.
+parameters:
+- name: status
+  type: select
+  required: false
+  label:
+    en_US: Status
+  human_description:
+    en_US: Only campaigns with this status.
+  llm_description: Only campaigns with this status.
+  form: llm
+  options:
+  - value: draft
+    label:
+      en_US: draft
+  - value: running
+    label:
+      en_US: running
+  - value: paused
+    label:
+      en_US: paused
+  - value: completed
+    label:
+      en_US: completed
+  - value: archived
+    label:
+      en_US: archived
+- name: limit
+  type: number
+  required: false
+  label:
+    en_US: Limit
+  human_description:
+    en_US: Maximum number of campaigns to return (1-200).
+  llm_description: Maximum number of campaigns to return (1-200).
+  form: form
+  default: 50
+extra:
+  python:
+    source: tools/list_campaigns.py

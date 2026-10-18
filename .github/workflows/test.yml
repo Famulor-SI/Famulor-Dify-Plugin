@@ -1,0 +1,19 @@
+name: test
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dify-plugin: ["0.9.1", "0.10.2"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "dify_plugin==${{ matrix.dify-plugin }}" "httpx>=0.28.1,<1" pytest respx
+      - run: python -m pytest -q

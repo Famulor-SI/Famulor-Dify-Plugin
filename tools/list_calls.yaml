@@ -1,0 +1,73 @@
+identity:
+  name: list_calls
+  author: famulor
+  label:
+    en_US: List Calls
+description:
+  human:
+    en_US: List recent calls, optionally filtered by assistant, campaign or status.
+  llm: Lists recent Famulor calls (newest first) with status, summary and sentiment.
+    Filter by assistant_id, campaign_id or status.
+parameters:
+- name: assistant_id
+  type: string
+  required: false
+  label:
+    en_US: Assistant ID
+  human_description:
+    en_US: Only calls of this assistant.
+  llm_description: Only calls of this assistant.
+  form: llm
+- name: campaign_id
+  type: string
+  required: false
+  label:
+    en_US: Campaign ID
+  human_description:
+    en_US: Only calls of this campaign.
+  llm_description: Only calls of this campaign.
+  form: llm
+- name: status
+  type: select
+  required: false
+  label:
+    en_US: Status
+  human_description:
+    en_US: Only calls with this status.
+  llm_description: Only calls with this status.
+  form: llm
+  options:
+  - value: queued
+    label:
+      en_US: queued
+  - value: ringing
+    label:
+      en_US: ringing
+  - value: in_progress
+    label:
+      en_US: in_progress
+  - value: completed
+    label:
+      en_US: completed
+  - value: failed
+    label:
+      en_US: failed
+  - value: no_answer
+    label:
+      en_US: no_answer
+  - value: busy
+    label:
+      en_US: busy
+- name: limit
+  type: number
+  required: false
+  label:
+    en_US: Limit
+  human_description:
+    en_US: Maximum number of calls to return (1-200).
+  llm_description: Maximum number of calls to return (1-200).
+  form: form
+  default: 20
+extra:
+  python:
+    source: tools/list_calls.py

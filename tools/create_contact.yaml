@@ -1,0 +1,51 @@
+identity:
+  name: create_contact
+  author: famulor
+  label:
+    en_US: Create Contact
+description:
+  human:
+    en_US: Create an Audience contact (lead) or merge into the existing contact with
+      the same phone or email.
+  llm: Creates or updates a Famulor Audience contact. Needs a phone number (E.164)
+    or an email.
+parameters:
+- name: phone
+  type: string
+  required: false
+  label:
+    en_US: Phone
+  human_description:
+    en_US: Phone number in E.164 format, e.g. +491701234567.
+  llm_description: Phone number in E.164 format, e.g. +491701234567.
+  form: llm
+- name: email
+  type: string
+  required: false
+  label:
+    en_US: Email
+  human_description:
+    en_US: Email address.
+  llm_description: Email address.
+  form: llm
+- name: name
+  type: string
+  required: false
+  label:
+    en_US: Name
+  human_description:
+    en_US: Contact name.
+  llm_description: Contact name.
+  form: llm
+- name: tags
+  type: string
+  required: false
+  label:
+    en_US: Tags
+  human_description:
+    en_US: Comma-separated tags, e.g. vip,renewal.
+  llm_description: Comma-separated tags, e.g. vip,renewal.
+  form: llm
+extra:
+  python:
+    source: tools/create_contact.py

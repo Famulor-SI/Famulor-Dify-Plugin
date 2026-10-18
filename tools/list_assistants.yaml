@@ -1,0 +1,25 @@
+identity:
+  name: list_assistants
+  author: famulor
+  label:
+    en_US: List Assistants
+description:
+  human:
+    en_US: List the AI voice assistants in the connected Famulor workspace (id, name,
+      active state, mode).
+  llm: Lists Famulor voice assistants with their ids. Use it to find the assistant_id
+    needed to start a call.
+parameters:
+- name: limit
+  type: number
+  required: false
+  label:
+    en_US: Limit
+  human_description:
+    en_US: Maximum number of assistants to return (1-200).
+  llm_description: Maximum number of assistants to return (1-200).
+  form: form
+  default: 50
+extra:
+  python:
+    source: tools/list_assistants.py

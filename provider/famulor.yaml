@@ -1,0 +1,45 @@
+identity:
+  author: famulor
+  name: famulor
+  label:
+    en_US: Famulor
+  description:
+    en_US: "AI voice agents by Famulor: start outbound phone calls, read call results and transcripts, manage contacts and campaigns."
+  icon: icon.svg
+  icon_dark: icon-dark.svg
+  tags:
+    - business
+    - productivity
+    - social
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: API Key
+    placeholder:
+      en_US: fam_...
+    help:
+      en_US: "Create a workspace API key in Famulor under Settings → API & MCP. The workspace needs API Access."
+    url: https://docs.famulor.io/api-reference/introduction
+  base_url:
+    type: text-input
+    required: false
+    default: https://app.famulor.io
+    label:
+      en_US: Base URL
+    placeholder:
+      en_US: https://app.famulor.io
+    help:
+      en_US: "Only change this for a Famulor white-label domain, e.g. https://app.example.com. HTTPS only."
+tools:
+  - tools/list_assistants.yaml
+  - tools/start_outbound_call.yaml
+  - tools/get_call.yaml
+  - tools/list_calls.yaml
+  - tools/create_contact.yaml
+  - tools/list_campaigns.yaml
+  - tools/start_campaign.yaml
+extra:
+  python:
+    source: provider/famulor.py

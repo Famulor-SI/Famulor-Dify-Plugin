@@ -1,0 +1,40 @@
+version: 0.1.0
+type: plugin
+author: famulor
+name: famulor
+repo: https://github.com/bekservice/famulor-dify-plugin
+contact: sales@famulor.io
+label:
+  en_US: Famulor
+  ja_JP: Famulor
+  zh_Hans: Famulor
+  pt_BR: Famulor
+description:
+  en_US: "Famulor AI voice agents in Dify: list assistants, start outbound phone calls, read call results and transcripts, create contacts and start campaigns."
+  ja_JP: "Famulor AI voice agents in Dify: list assistants, start outbound phone calls, read call results and transcripts, create contacts and start campaigns."
+  zh_Hans: "Famulor AI voice agents in Dify: list assistants, start outbound phone calls, read call results and transcripts, create contacts and start campaigns."
+  pt_BR: "Famulor AI voice agents in Dify: list assistants, start outbound phone calls, read call results and transcripts, create contacts and start campaigns."
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/famulor.yaml
+meta:
+  version: 0.1.0
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+created_at: 2026-10-18T18:32:00.251742064+02:00
+privacy: PRIVACY.md
+network:
+  domains:
+    - app.famulor.io
+verified: false

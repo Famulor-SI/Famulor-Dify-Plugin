@@ -1,0 +1,33 @@
+identity:
+  name: get_call
+  author: famulor
+  label:
+    en_US: Get Call
+description:
+  human:
+    en_US: Get a call's status, summary, analysis and transcript.
+  llm: Fetches one Famulor call by id, including status, duration, summary, post-call
+    analysis and (optionally) the transcript.
+parameters:
+- name: call_id
+  type: string
+  required: true
+  label:
+    en_US: Call ID
+  human_description:
+    en_US: ID returned when the call was created or listed.
+  llm_description: ID returned when the call was created or listed.
+  form: llm
+- name: include_transcript
+  type: boolean
+  required: false
+  label:
+    en_US: Include transcript
+  human_description:
+    en_US: Return the conversation transcript as well.
+  llm_description: Return the conversation transcript as well.
+  form: form
+  default: true
+extra:
+  python:
+    source: tools/get_call.py
