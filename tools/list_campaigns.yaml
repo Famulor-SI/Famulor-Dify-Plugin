@@ -22,6 +22,9 @@ parameters:
   - value: draft
     label:
       en_US: draft
+  - value: scheduled
+    label:
+      en_US: scheduled
   - value: running
     label:
       en_US: running

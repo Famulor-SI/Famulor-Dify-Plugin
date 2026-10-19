@@ -13,7 +13,7 @@ from urllib.parse import quote, urlsplit
 import httpx
 
 DEFAULT_BASE_URL = "https://app.famulor.io"
-USER_AGENT = "famulor-dify-plugin/0.1.0"
+USER_AGENT = "famulor-dify-plugin/0.1.1"
 TIMEOUT = httpx.Timeout(30.0, connect=10.0)
 
 

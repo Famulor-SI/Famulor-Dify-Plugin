@@ -238,3 +238,25 @@ def test_rate_limited_write_reports_error():
     respx.post(f"{API}/campaigns/k1/start").mock(return_value=httpx.Response(429, json={"error": {"code": "rate_limited", "message": "Too many requests"}}))
     with pytest.raises(ValueError, match="Too many"):
         run("start_campaign", {"campaign_id": "k1"})
+
+
+# Allowed filter values as returned by the live API's 400 validation messages (checked 2026-10-19).
+API_CALL_STATUSES = ["queued", "ringing", "in_progress", "completed", "failed", "no_answer", "busy"]
+API_CAMPAIGN_STATUSES = ["draft", "scheduled", "running", "paused", "completed", "archived"]
+
+
+@pytest.mark.parametrize("tool,param,expected", [("list_calls", "status", API_CALL_STATUSES), ("list_campaigns", "status", API_CAMPAIGN_STATUSES)])
+def test_select_options_match_api_enums(tool, param, expected):
+    opts = next(p for p in load(f"tools/{tool}.yaml")["parameters"] if p["name"] == param)["options"]
+    assert [o["value"] for o in opts] == expected
+
+
+def test_versions_consistent():
+    import tomllib
+
+    import famulor_client
+
+    v = load("manifest.yaml")["version"]
+    assert famulor_client.USER_AGENT.endswith("/" + v)
+    assert tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"] == v
+    assert f"**Version:** {v}" in (ROOT / "README.md").read_text()

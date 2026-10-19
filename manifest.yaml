@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.1.1
 type: plugin
 author: famulor
 name: famulor
@@ -23,7 +23,7 @@ plugins:
   tools:
     - provider/famulor.yaml
 meta:
-  version: 0.1.0
+  version: 0.1.1
   arch:
     - amd64
     - arm64
