@@ -3,7 +3,7 @@
 **Author:** famulor (published by BEK Service GmbH, maker of Famulor)
 **Version:** 0.1.1
 **Type:** tool
-**Source repository:** https://github.com/bekservice/famulor-dify-plugin
+**Source repository:** https://github.com/Famulor-SI/famulor-dify-plugin
 **Contact:** sales@famulor.io
 
 ## Description

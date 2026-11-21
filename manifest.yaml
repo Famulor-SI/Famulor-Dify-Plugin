@@ -2,7 +2,7 @@ version: 0.1.1
 type: plugin
 author: famulor
 name: famulor
-repo: https://github.com/bekservice/famulor-dify-plugin
+repo: https://github.com/Famulor-SI/famulor-dify-plugin
 contact: sales@famulor.io
 label:
   en_US: Famulor
